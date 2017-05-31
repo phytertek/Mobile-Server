@@ -5,7 +5,7 @@ const cors = require('cors');
 const port = process.env.PORT || 8080;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/auth');
+mongoose.connect('mongodb://ben:benji@ds161001.mlab.com:61001/mobile-test');
 
 const app = express();
 app.use(bodyParser.json());
