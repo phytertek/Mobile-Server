@@ -13,6 +13,10 @@ app.use(cors());
 
 require('./controllers')(app);
 
+app.get('/', (req, res) => {
+	res.send('hello world!');
+});
+
 app.listen(port, (req, res) => {
   console.log(`server listening on port ${port}`);
 });
