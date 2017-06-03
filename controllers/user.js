@@ -11,6 +11,7 @@ const createUser = (req, res) => {
     if (err) return res.send(err);
     res.send({
       token: getTokenForUser(user),
+      user: user,
     });
   });
 };
@@ -22,7 +23,12 @@ const getUsers = (req, res) => {
   });
 };
 
+const getUser = (req, res) => {
+  res.send(req.user);
+};
+
 module.exports = (app) => {
   app.post('/users', createUser);
   app.get('/users', requireAuth, getUsers);
+  app.get('/user', requireAuth, getUser);
 };

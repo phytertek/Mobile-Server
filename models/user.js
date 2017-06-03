@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
+const TodoSchema = require('./todo');
 
 const UserSchema = mongoose.Schema({
   email: {
@@ -17,6 +18,9 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  todos: [
+    TodoSchema
+  ],
 });
 
 UserSchema.pre('save', function(next) {
